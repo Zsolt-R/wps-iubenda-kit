@@ -60,7 +60,7 @@ function createWrapperUI(item, iubendaButton) {
 				item.attributes.suppressedsrc.value,
 			);
 
-			wrapper.style.background = `url(https://img.youtube.com/vi/${videoID}/maxresdefault.jpg)`;
+			wrapper.style.backgroundImage = `url(https://img.youtube.com/vi/${videoID}/maxresdefault.jpg)`;
 		} else if (
 			item.attributes.suppressedsrc.value.includes(
 				'https://www.google.com/maps',
