@@ -22,5 +22,8 @@ define( 'WPS_IUBENDA_KIT_UPDATE_URL', 'https://zsoltrevay.com/packages' );
 define( 'WPS_IUBENDA_KIT_UPDATE_FOLDER', 'wps-iubenda-kit' );
 define( 'WPS_IUBENDA_KIT_PLUGIN_SLUG', 'wps-iubenda-kit' );
 
-require_once WPS_IUBENDA_KIT_DIR_PATH . '/inc/setup-updater.php';
+/**
+ * TODO Hookup updater later
+ * require_once WPS_IUBENDA_KIT_DIR_PATH . '/inc/setup-updater.php';
+ */
 require_once WPS_IUBENDA_KIT_DIR_PATH . '/inc/setup-assets.php';
