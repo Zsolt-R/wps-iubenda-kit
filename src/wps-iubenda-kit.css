@@ -1,14 +1,13 @@
 .wps-iub-locked-wrapper{
 	position:relative;
 	background-color: #f6f6f6;
-	background: repeating-linear-gradient( -45deg, #dbdbdb, #dbdbdb 2.5px, #f6f6f6 2.5px, #f6f6f6 12.5px );
 	background-size: cover;
+	background-repeat:no-repeat;
+	background-position: center;
 }
 
 .wps-iub-locked-wrapper--is-map{
 	background-image: url('../assets/map-placeholder.jpg');
-	background-repeat:no-repeat;
-	background-position: center;
 }
 
 .wp-block-embed .wp-block-embed__wrapper .wps-iub-locked-wrapper{
