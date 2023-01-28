@@ -1,0 +1,38 @@
+.wps-iub-locked-wrapper{
+	position:relative;
+	background-color: #f6f6f6;
+	background: repeating-linear-gradient( -45deg, #dbdbdb, #dbdbdb 2.5px, #f6f6f6 2.5px, #f6f6f6 12.5px );
+}
+
+.wps-iub-locked-wrapper--is-map{
+	background: url('../assets/map-placeholder.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+.wp-block-embed .wp-block-embed__wrapper .wps-iub-locked-wrapper{
+	position:absolute;
+	top:0;
+	height:100%;
+	width:100%;
+}
+
+.wps-iub-locked-button{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index:1;
+	background: rgba(255,255,255,.8);
+	padding: 0.5rem 1rem;
+	border: 1px solid #ccc;
+	font-size: 14px;
+}
+
+
+.wps-iub-locked-button:hover{
+	cursor:pointer;
+}
+.wps-iub-locked-button + iframe._iub_cs_activate._iub_cs_activate-activated{
+	z-index:2;
+	position: relative;
+}

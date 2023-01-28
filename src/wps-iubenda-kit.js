@@ -1,0 +1,116 @@
+function getYouTubeVideoID(url) {
+	const videoID = url.match(
+		/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/,
+	);
+	return videoID[2];
+}
+
+function getCookie(cookieName) {
+	let cookieValue = document.cookie,
+		cookieStart = cookieValue.indexOf(' ' + cookieName + '=');
+	if (cookieStart === -1) cookieStart = cookieValue.indexOf(cookieName + '=');
+	if (cookieStart === -1) {
+		cookieValue = null;
+	} else {
+		cookieStart = cookieValue.indexOf('=', cookieStart) + 1;
+		let cookieEnd = cookieValue.indexOf(';', cookieStart);
+		if (cookieEnd === -1) {
+			cookieEnd = cookieValue.length;
+		}
+		cookieValue = unescape(cookieValue.substring(cookieStart, cookieEnd));
+	}
+	return cookieValue;
+}
+
+function getMessage() {
+	const currentLanguage = getCookie('wp-wpml_current_language');
+	let message = 'Accetta i cookie per vedere il contenuto.';
+	if (currentLanguage) {
+		if (
+			'en' === currentLanguage ||
+			'fr' === currentLanguage ||
+			'de' === currentLanguage
+		) {
+			message = 'Accept cookies to see content.';
+		}
+	}
+
+	return message;
+}
+
+function createWrapperUI(item, iubendaButton) {
+	const wrapper = document.createElement('div');
+	const inner = document.createElement('div');
+	wrapper.classList.add('wps-iub-locked-wrapper');
+	inner.classList.add('wps-iub-locked-button');
+	inner.innerHTML = `<span class="message">${getMessage()}</span>`;
+
+	inner.addEventListener('click', function () {
+		iubendaButton.click();
+	});
+
+	// Check the suppressedsrc attribute value string contains https://www.youtube.com or https://www.google.com/maps
+	if (item?.attributes?.suppressedsrc?.value) {
+		if (
+			item.attributes.suppressedsrc.value.includes(
+				'https://www.youtube.com',
+			)
+		) {
+			const videoID = getYouTubeVideoID(
+				item.attributes.suppressedsrc.value,
+			);
+
+			wrapper.style.background = `url(https://img.youtube.com/vi/${videoID}/maxresdefault.jpg)`;
+		} else if (
+			item.attributes.suppressedsrc.value.includes(
+				'https://www.google.com/maps',
+			)
+		) {
+			wrapper.classList.add('wps-iub-locked-wrapper--is-map');
+
+			if (item.attributes.height) {
+				wrapper.style.maxHeight = `${item.attributes.height.value}px`;
+			}
+		}
+	}
+
+	// Insert the new node before the item
+	wrapper.appendChild(inner);
+	item.parentNode.insertBefore(wrapper, item);
+	wrapper.appendChild(item);
+}
+
+function addIubendaNotice() {
+	/**
+	 * Find all elements with class _iub_cs_activate
+	 * Check if they have class _iub_cs_activate-activated
+	 * If not check the suppressedsrc attribute value string contains https://www.youtube.com or https://www.google.com/maps
+	 * If string is found wrap the item in <div class="wps-iub-locked-wrapper"><div class="wps-iub-locked-button">...</div></div>
+	 */
+	const content = document.querySelectorAll('iframe._iub_cs_activate');
+
+	const iubendaButton = document.querySelector(
+		'.iubenda-cs-preferences-link',
+	);
+
+	if (content.length > 0) {
+		content.forEach((item) => {
+			const hasIubendaAccepted = item.classList.contains(
+				'_iub_cs_activate-activated',
+			);
+
+			if (hasIubendaAccepted) {
+				return null;
+			}
+
+			createWrapperUI(item, iubendaButton);
+		});
+	}
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+	// Set timeout to allow iubenda to load
+	setTimeout(function () {
+		addIubendaNotice();
+	}, 300);
+});
