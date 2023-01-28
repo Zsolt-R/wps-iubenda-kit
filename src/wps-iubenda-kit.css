@@ -6,7 +6,9 @@
 }
 
 .wps-iub-locked-wrapper--is-map{
-	background: url('../assets/map-placeholder.jpg') no-repeat center center;
+	background-image: url('../assets/map-placeholder.jpg');
+	background-repeat:no-repeat;
+	background-position: center;
 }
 
 .wp-block-embed .wp-block-embed__wrapper .wps-iub-locked-wrapper{
