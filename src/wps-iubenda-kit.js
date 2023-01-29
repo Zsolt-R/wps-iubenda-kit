@@ -120,8 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	let iubendaButton = getIubendaButton();
 	let i = 0;
 	const interval = setInterval(function () {
-
-		console.log(iubendaButton);
 		if (iubendaButton) {
 			clearInterval(interval);
 			addIubendaNotice(iubendaButton);
