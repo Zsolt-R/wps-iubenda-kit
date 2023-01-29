@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-iubenda-kit
- * Version:         1.0.0
+ * Version:         1.0.1
  *
  * @package WPS_Animate
  */
@@ -15,7 +15,7 @@ declare( strict_types=1 );
 
 namespace WPS\IubendaKit;
 
-define( 'WPS_IUBENDA_KIT_VERSION', '1.0.2' );
+define( 'WPS_IUBENDA_KIT_VERSION', '1.0.1' );
 define( 'WPS_IUBENDA_KIT_DIR_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'WPS_IUBENDA_KIT_DIR_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'WPS_IUBENDA_KIT_UPDATE_URL', 'https://zsoltrevay.com/packages' );
