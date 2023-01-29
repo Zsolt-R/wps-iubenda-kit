@@ -80,7 +80,7 @@ function createWrapperUI(item, iubendaButton) {
 	wrapper.appendChild(item);
 }
 
-function addIubendaNotice() {
+function addIubendaNotice(iubendaButton) {
 	/**
 	 * Find all elements with class _iub_cs_activate
 	 * Check if they have class _iub_cs_activate-activated
@@ -88,10 +88,6 @@ function addIubendaNotice() {
 	 * If string is found wrap the item in <div class="wps-iub-locked-wrapper"><div class="wps-iub-locked-button">...</div></div>
 	 */
 	const content = document.querySelectorAll('iframe._iub_cs_activate');
-
-	const iubendaButton = document.querySelector(
-		'.iubenda-cs-preferences-link',
-	);
 
 	if (content.length > 0) {
 		content.forEach((item) => {
@@ -108,9 +104,34 @@ function addIubendaNotice() {
 	}
 }
 
+function getIubendaButton() {
+	const iubendaButton = document.querySelector(
+		'.iubenda-cs-preferences-link',
+	);
+	return iubendaButton;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-	// Set timeout to allow iubenda to load
-	setTimeout(function () {
-		addIubendaNotice();
+	/**
+	 * Check if we have iubenda button and if not check again every 300ms for
+	 * a maximum of 10 times
+	 * If we have button add the notice
+	 */
+	let iubendaButton = getIubendaButton();
+	let i = 0;
+	const interval = setInterval(function () {
+
+		console.log(iubendaButton);
+		if (iubendaButton) {
+			clearInterval(interval);
+			addIubendaNotice(iubendaButton);
+		} else {
+			iubendaButton = getIubendaButton();
+			i++;
+		}
+
+		if (i > 20) {
+			clearInterval(interval);
+		}
 	}, 300);
 });

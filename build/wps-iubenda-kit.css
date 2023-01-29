@@ -1,1 +1,45 @@
-.wps-iub-locked-wrapper{background-color:#f6f6f6;background-position:50%;background-repeat:no-repeat;background-size:cover;position:relative}.wps-iub-locked-wrapper--is-map{background-image:url(images/map-placeholder.79d06592.jpg)}.wp-block-embed .wp-block-embed__wrapper .wps-iub-locked-wrapper{height:100%;position:absolute;top:0;width:100%}.wps-iub-locked-button{background:hsla(0,0%,100%,.8);border:1px solid #ccc;font-size:14px;left:50%;padding:.5rem 1rem;position:absolute;top:50%;transform:translate(-50%,-50%);z-index:1}.wps-iub-locked-button:hover{cursor:pointer}.wps-iub-locked-button+iframe._iub_cs_activate._iub_cs_activate-activated{position:relative;z-index:2}
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/wps-iubenda-kit.css ***!
+  \*****************************************************************************************************************************************************************************/
+.wps-iub-locked-wrapper{
+	position:relative;
+	background-color: #f6f6f6;
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+.wps-iub-locked-wrapper--is-map{
+	background-image: url(images/map-placeholder.79d06592.jpg);
+}
+
+.wp-block-embed .wp-block-embed__wrapper .wps-iub-locked-wrapper{
+	position:absolute;
+	top:0;
+	height:100%;
+	width:100%;
+}
+
+.wps-iub-locked-button{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index:1;
+	background: rgba(255,255,255,.8);
+	padding: 0.5rem 1rem;
+	border: 1px solid #ccc;
+	font-size: 14px;
+}
+
+.wps-iub-locked-button:hover{
+	cursor:pointer;
+}
+
+.wps-iub-locked-button + iframe._iub_cs_activate._iub_cs_activate-activated{
+	z-index:2;
+	position: relative;
+}
+
+
+/*# sourceMappingURL=wps-iubenda-kit.css.map*/
