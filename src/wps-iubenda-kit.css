@@ -1,39 +1,39 @@
-.wps-iub-locked-wrapper{
-	position:relative;
+.wps-iub-locked-wrapper {
 	background-color: #f6f6f6;
-	background-size: cover;
-	background-repeat:no-repeat;
 	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
 }
 
-.wps-iub-locked-wrapper--is-map{
-	background-image: url('../assets/map-placeholder.jpg');
+.wps-iub-locked-wrapper--is-map {
+	background-image: url(../assets/map-placeholder.jpg);
 }
 
-.wp-block-embed .wp-block-embed__wrapper .wps-iub-locked-wrapper{
-	position:absolute;
-	top:0;
-	height:100%;
-	width:100%;
-}
-
-.wps-iub-locked-button{
+.wp-block-embed .wp-block-embed__wrapper .wps-iub-locked-wrapper {
+	height: 100%;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index:1;
-	background: rgba(255,255,255,.8);
-	padding: 0.5rem 1rem;
+	top: 0;
+	width: 100%;
+}
+
+.wps-iub-locked-button {
+	background: rgba(255, 255, 255, 0.8);
 	border: 1px solid #ccc;
 	font-size: 14px;
+	left: 50%;
+	padding: 0.5rem 1rem;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
 }
 
-
-.wps-iub-locked-button:hover{
-	cursor:pointer;
+.wps-iub-locked-button:hover {
+	cursor: pointer;
 }
-.wps-iub-locked-button + iframe._iub_cs_activate._iub_cs_activate-activated{
-	z-index:2;
+
+.wps-iub-locked-button + iframe._iub_cs_activate._iub_cs_activate-activated {
 	position: relative;
+	z-index: 2;
 }
