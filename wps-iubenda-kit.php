@@ -22,6 +22,8 @@ define( 'WPS_IUBENDA_KIT_UPDATE_URL', 'https://zsoltrevay.com/packages' );
 define( 'WPS_IUBENDA_KIT_UPDATE_FOLDER', 'wps-iubenda-kit' );
 define( 'WPS_IUBENDA_KIT_PLUGIN_SLUG', 'wps-iubenda-kit' );
 
+add_action( 'admin_init', __NAMESPACE__ . '\\check_iubenda_status' );
+
 /**
  * Check if Iubenda plugin is activated
  *
